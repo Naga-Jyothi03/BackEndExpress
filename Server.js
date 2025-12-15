@@ -1,6 +1,7 @@
 require("dotenv").config();
 // importing the express module 
 const express=require("express");
+const serverless = require("serverless-http");
 const { default: mongoose } = require("mongoose");
 const router = require("./Routes");
 
@@ -30,7 +31,7 @@ mongoose
 
 
 //start the server and listen on port number
-app.listen(3000,()=>{
-    console.log(`Server is running on http://localhost:${process.env.PORT}`);
-});
- 
+// app.listen(3000,()=>{
+//     console.log(`Server is running on http://localhost:${process.env.PORT}`);
+// });
+ module.exports = serverless(app);
